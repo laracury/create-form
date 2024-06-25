@@ -20,11 +20,11 @@
                 </div>
                 <div class="formulario">
                     <label for="name">Nome:</label>
-                <input type="text">
+                <input type="text" id="name">
                 <label for="telefone">Telefone:</label>
                 <input type="text" id="telefone" name="telefone" placeholder="(xx) xxxxx-xxxx">
                 <label for="e-mail">Email</label>
-                <input type="email">
+                <input type="email" id="email">
                 <label for="descricao">Descrição</label>
                 <textarea id="descricao" name="descricao" rows="6" cols="60" placeholder="Digite sua descrição aqui..."></textarea> 
                 <!-- 
@@ -34,7 +34,7 @@
                 -->
                 </div>
                 <div class="div-btn">
-                    <button class="btn" type="submit"> Sumit</button>
+                    <button class="btn" type="submit" onclick="saveForm()"> Salvar </button>
                 </div>
             </form>
         </article>
@@ -44,6 +44,49 @@
     $(document).ready(function(){ // Utiliza o $(document).ready do jQuery para garantir que o DOM esteja completamente carregado antes de aplicar a máscara.
         $("#telefone").inputmask("(99) 99999-9999");
     });
+
+    // Função para salvar os dados do formulário no localstorage
+    function saveForm(){
+        //obtendo os valores dos campos do formulário
+        const name= document.getElementById('name').value;
+        const telefone= document.getElementById('telefone').value;
+        const email= document.getElementById('email').value;
+        const descricao= document.getElementById('descricao').value;
+
+        //criando um objeto com os valores
+        const formData = {
+            name: name, 
+            telefone: telefone,
+            email: email,
+            descricao: descricao
+        };
+
+        //salvando o objeto com uma string JSON
+        localStorage.setItem('formData', JSON. stringify(formData));
+        alert('Dados salvos em Local Storage!');
+    }
+    
+    // Função para carregar od dados do localstorage quando a página é carregada
+    window.onload = function(){
+        // Verificando se existem dados salvos no localstorage
+        const savedFormData = localStorage.getItem('formData');
+        if (savedFormData){
+            // Convertendo uma string JSON de volta para um objeto
+            const formData = JSON.parse(savedFormData);
+
+            // Preenchendo os campos so formulário com os dados salvos
+            document.getElementById('name').value = formData.name;
+
+            document.getElementById('telefone').value = formData.telefone;
+
+            document.getElementById('email').value = formData.email;
+
+            document.getElementById('descricao').value = formData.descricao;
+        }
+    };
+
+    // Explicação: a função saveForm() obtem os valores dos campos do formulário, cria um objeto com esses valores e o salva no localstorage como uma string JSON.
+    // A função window.onload carrega os dados do localstorage quando a página é carregada e preenche os campos so formulário com esses dados, se existirem
 </script>
 
 </html>
