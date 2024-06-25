@@ -1,0 +1,63 @@
+@charset "UTF-8"; 
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+html{
+    background-color: rgb(255, 214, 164);
+    width: 100%;
+}
+section{
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card{
+    background-color:white;
+    width: 800px;
+    height: 700px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 4px rgb(180, 180, 180);
+    text-shadow: 1px 1px 2px rgb(156, 156, 156);
+
+}
+form{
+    width: auto;
+    margin: 0 auto;
+}
+.titulo{
+    width: auto;
+    text-align: center;
+    font-size: 2.3rem;
+    padding: 10px;
+    margin-bottom: 15px;
+    color: rgb(197, 115, 20);
+}
+.formulario{
+    display: grid;
+}
+label{
+    font-size: 1.5rem;
+    padding: 10px;
+}
+input{
+    height: 30px;
+    box-shadow: 2px 2px 2px rgb(165, 164, 164);
+}
+textarea {
+    width: auto;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical; /* Permite que o usuário redimensione a altura */
+    box-shadow: 2px 2px 2px rgb(165, 164, 164);
+}

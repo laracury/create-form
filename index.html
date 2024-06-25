@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Inclusão de biblioteca para utilização da Máscara no Input:
+        Bibliotecas JQuery e Inputmask 
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.7-beta.0/jquery.inputmask.min.js"></script>
+</head>
+<body>
+    <section>
+        <article class="card">
+            <form>
+                <div class="titulo">
+                    <h1>CADASTRO</h1>
+                </div>
+                <div class="formulario">
+                    <label for="name">Nome:</label>
+                <input type="text">
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" name="telefone" placeholder="(xx) xxxxx-xxxx">
+                <label for="e-mail">Email</label>
+                <input type="email">
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao" name="descricao" rows="6" cols="60" placeholder="Digite sua descrição aqui..."></textarea> 
+                <!-- 
+                ROWS: Define o número de linhas visíveis na área de texto.
+                COLS: Define o número de colunas visíveis na área de texto.
+                PLACEHOLDER: Exibe um texto de espaço reservado dentro da área de texto, que desaparece quando o usuário começa a digitar.
+                -->
+                </div>
+                
+            </form>
+        </article>
+    </section>
+</body>
+<script>
+    $(document).ready(function(){ // Utiliza o $(document).ready do jQuery para garantir que o DOM esteja completamente carregado antes de aplicar a máscara.
+        $("#telefone").inputmask("(99) 99999-9999");
+    });
+</script>
+
+</html>
+
+<!--o DOM é uma ponte que conecta os documentos HTML/XML ao JavaScript, permitindo a criação de páginas web dinâmicas e interativas.-->
